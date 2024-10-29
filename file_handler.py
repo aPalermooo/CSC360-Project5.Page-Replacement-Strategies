@@ -20,17 +20,14 @@ def read_input (filename: str) -> StdInput:
         # reference string
         ref_string = input_file.readline()
         ref_string = list(map(int, ref_string[:-1].split(' ')))
-        print(ref_string)
 
         # frames allocated
         frames = input_file.readline()
         frames = int(frames[:-1])
-        print(frames)
 
         mnemonics = input_file.readlines()
         for index, mnemonic in enumerate(mnemonics):
             if mnemonic[-1] == '\n':
                 mnemonics[index] = mnemonic[:-1]
-        print(mnemonics)
         return StdInput(ref_string, frames, mnemonics)
 
