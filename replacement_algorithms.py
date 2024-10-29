@@ -14,39 +14,44 @@ class Algorithm:
     def __init__(self, std_input: StdInput) -> None:
         self.__std_input = std_input
 
-
-    def __FIFO(self):
+    @staticmethod
+    def FIFO(ref_string : list[int], frame : int) -> None:
         print("FIFO called")
-        return 1
+        return
 
-    def __LRU(self):
+    @staticmethod
+    def LRU(ref_string : list[int], frame : int) -> None:
         print("LRU called")
-        return 1
+        return
 
-    def __OPT(self):
+    @staticmethod
+    def OPT(ref_string : list[int], frame : int) -> None:
         print("OPT called")
-        return 1
+        return
 
-    def __RAND(self):
+    @staticmethod
+    def RAND(ref_string : list[int], frame : int) -> None:
         print("RAND called")
-        return 1
+        return
 
-    def calculate(self) -> None:
+
+    def calculate(self) -> int:
         ref_string =  self.__std_input.get_ref_string()
         frames =  self.__std_input.get_frames()
         mnemonics =  self.__std_input.get_mnemonic()
         for mnemonic in mnemonics:
             if mnemonic == "FIFO":
-                self.__FIFO()
+                self.FIFO(ref_string, frames)
             elif mnemonic == "LRU":
-                self.__LRU()
+                self.LRU(ref_string, frames)
             elif mnemonic == "OPT":
-                self.__OPT()
+                self.OPT(ref_string, frames)
             elif mnemonic == "RAND":
-                self.__RAND()
+                self.RAND(ref_string, frames)
             else:
                 print(f"ERROR: {mnemonic} is not a valid mnemonic, check input file.")
-        return
+                return 1
+        return 0
 
 
 

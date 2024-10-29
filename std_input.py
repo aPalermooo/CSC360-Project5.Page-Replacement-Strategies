@@ -16,7 +16,7 @@ class StdInput:
         self.__mnemonics = mnemonics
 
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.__ref_string}\n{self.__frames}\n{self.__mnemonics}"
 
     def get_ref_string(self) -> list[int]:
