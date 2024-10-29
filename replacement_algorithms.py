@@ -30,6 +30,40 @@ class StdInput:
         return self.__mnemonics
 
 
+def calculate (std_input) -> None:
+    def __FIFO():
+        print("FIFO called")
+        return
+
+    def __LRU():
+        print("LRU called")
+        return
+
+    def __OPT():
+        print("OPT called")
+        return
+
+    def __RAND():
+        print("RAND called")
+        return
+
+
+    ref_string = std_input.get_ref_string()
+    frames = std_input.get_frames()
+    mnemonics = std_input.get_mnemonic()
+    for mnemonic in mnemonics:
+        if mnemonic == "FIFO":
+            __FIFO()
+        elif mnemonic == "LRU":
+            __LRU()
+        elif mnemonic == "OPT":
+            __OPT()
+        elif mnemonic == "RAND":
+            __RAND()
+        else:
+            print(f"ERROR: {mnemonic} is not a valid mnemonic, check input file.")
+    return
+
 class Algorithm:
     def __init__(self):
         return
@@ -50,22 +84,7 @@ class Algorithm:
         print("RAND called")
         return
 
-    def calculate (self, std_input : StdInput) -> None:
-        ref_string = std_input.get_ref_string()
-        frames = std_input.get_frames()
-        mnemonics = std_input.get_mnemonic()
-        for mnemonic in mnemonics:
-            if mnemonic == "FIFO":
-                self.__FIFO()
-            elif mnemonic == "LRU":
-                self.__LRU()
-            elif mnemonic == "OPT":
-                self.__OPT()
-            elif mnemonic == "RAND":
-                self.__RAND()
-            else:
-                print(f"ERROR: {mnemonic} is not a valid mnemonic, check input file.")
-        return
+
 
 
 

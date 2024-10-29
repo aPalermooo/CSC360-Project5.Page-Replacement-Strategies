@@ -10,7 +10,7 @@
 """
 import file_handler
 import replacement_algorithms
-from replacement_algorithms import Algorithm
+from replacement_algorithms import Algorithm, calculate
 
 
 def main () -> int:
@@ -24,7 +24,7 @@ def main () -> int:
            f"{program_input.get_ref_string()}\n"
            f"{program_input.get_frames()}\n"
            f"{program_input.get_mnemonic()}\n")
-    # compute_page_faults.calculate(program_input)
+    replacement_algorithms.calculate(program_input)
     return 0
 
 if __name__ == "__main__":
