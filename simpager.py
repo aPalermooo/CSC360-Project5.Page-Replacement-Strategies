@@ -12,10 +12,12 @@ import file_handler
 from replacement_algorithms import Algorithm
 
 
-def main () -> int:
+def main (file_path : str) -> int:
     """
-
-    :return: int
+    Applies algorithms to calculate number of page faults a specific instance of memory would encounter
+    Included algorithms: FIFO, LRU, OPT, and RAND
+    :param file_path:       path of input file
+    :return:                0 for successful execution, 1 for input formatting error
     """
     #open designated file and format contents
     in_file = "p52.txt"
@@ -29,4 +31,4 @@ def main () -> int:
     return 0
 
 if __name__ == "__main__":
-    main()
+    main("p52.txt")
