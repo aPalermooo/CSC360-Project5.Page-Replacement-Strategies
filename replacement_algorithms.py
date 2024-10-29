@@ -8,6 +8,7 @@
 "   Date:       30 October 2024
 "
 """
+
 from std_input import StdInput
 
 class Algorithm:

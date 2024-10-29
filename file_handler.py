@@ -13,6 +13,11 @@ from std_input import StdInput
 
 
 def read_input (filename: str) -> StdInput:
+    """
+    Opens file "filename" and parses contents into a format that is more workable
+    :param filename: the path of the file that contains input data
+    :return: an object that contains all formatted input data
+    """
     with open(filename, 'r') as input_file:
 
         # reference string
@@ -23,9 +28,11 @@ def read_input (filename: str) -> StdInput:
         frames = input_file.readline()
         frames = int(frames[:-1])
 
+        # algorithms to be run
         mnemonics = input_file.readlines()
         for index, mnemonic in enumerate(mnemonics):
             if mnemonic[-1] == '\n':
                 mnemonics[index] = mnemonic[:-1]
+
         return StdInput(ref_string, frames, mnemonics)
 
