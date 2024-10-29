@@ -10,7 +10,7 @@
 """
 import file_handler
 import replacement_algorithms
-from replacement_algorithms import Algorithm, calculate
+from replacement_algorithms import Algorithm
 
 
 def main () -> int:
@@ -18,13 +18,8 @@ def main () -> int:
     print(f"simpager.py < {in_file}")
     program_input = file_handler.read_input(in_file)
     print(f"Page Reference String: {program_input.get_ref_string()}")
-    compute_page_faults = Algorithm
-    print( f"\n\n\n\ndebug:"
-           f"{type(program_input)}\n"
-           f"{program_input.get_ref_string()}\n"
-           f"{program_input.get_frames()}\n"
-           f"{program_input.get_mnemonic()}\n")
-    replacement_algorithms.calculate(program_input)
+    compute_page_faults = Algorithm(program_input)
+    compute_page_faults.calculate()
     return 0
 
 if __name__ == "__main__":
