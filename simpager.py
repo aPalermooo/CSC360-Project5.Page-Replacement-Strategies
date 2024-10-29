@@ -9,8 +9,6 @@
 "
 """
 import file_handler
-import replacement_algorithms
-from replacement_algorithms import Algorithm
 
 
 def main () -> int:

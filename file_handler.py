@@ -9,9 +9,7 @@
 "
 """
 
-import os
-
-from replacement_algorithms import StdInput
+from std_input import StdInput
 
 
 def read_input (filename: str) -> StdInput:
