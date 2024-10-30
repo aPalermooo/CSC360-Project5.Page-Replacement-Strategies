@@ -11,6 +11,8 @@
 import file_handler
 from replacement_algorithms import Algorithm
 
+def debug_print():
+    print("\n"*5)
 
 def main (file_path : str) -> int:
     """

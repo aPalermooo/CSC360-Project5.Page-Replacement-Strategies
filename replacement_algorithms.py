@@ -10,54 +10,89 @@
 """
 
 from std_input import StdInput
+from random import randint
 
 class Algorithm:
     def __init__(self, std_input: StdInput) -> None:
         self.__std_input = std_input
 
-    @staticmethod
-    def FIFO(ref_string : list[int], frame : int) -> None:
-        print("FIFO called")
-        return
+    # FRAME WITH COUNTER
+    # init_state = [-1,0]
+    # frames_list = []
+    # for frame in range(num_of_frames):
+    #     frames_list.append(init_state)
+    # frames_list = tuple(frames_list)
+
+    #TODO: CHECK ACCURACY
 
     @staticmethod
-    def LRU(ref_string : list[int], frame : int) -> None:
-        print("LRU called")
-        return
+    def FIFO(ref_string : list[int], num_of_frames : int) -> int:
+        page_faults = 0
+        frames_list = [-1] * num_of_frames
+        for page in ref_string:
+            if page in frames_list:
+                continue
+            else:
+                frames_list.append(page)
+                frames_list.pop(0)
+                page_faults += 1
+        return page_faults
 
     @staticmethod
-    def OPT(ref_string : list[int], frame : int) -> None:
-        print("OPT called")
-        return
+    def LRU(ref_string : list[int], num_of_frames : int) -> int:
+        page_faults = 0
+        frames_list = [-1] * num_of_frames
+        index = 0
+        for page in ref_string:
+            if page in frames_list:
+                continue
+            else:
+                frames_list[index] = page
+                index = (index + 1) % num_of_frames
+                page_faults += 1
+        return page_faults
 
     @staticmethod
-    def RAND(ref_string : list[int], frame : int) -> None:
-        print("RAND called")
-        return
+    def OPT(ref_string : list[int], num_of_frames : int) -> int:
+        #TODO: OPTIMAL
+        page_faults = 0
+        return page_faults
+
+    @staticmethod
+    def RAND(ref_string : list[int], num_of_frames : int) -> int:
+        page_faults = 0
+        frames_list = [-1] * num_of_frames
+        for page in ref_string:
+            if page in frames_list:
+                continue
+            else:
+                index = randint(0, num_of_frames-1)
+                frames_list[index] = page
+                page_faults += 1
+        return page_faults
 
 
     def calculate(self) -> int:
         ref_string =  self.__std_input.get_ref_string()
         frames =  self.__std_input.get_frames()
         mnemonics =  self.__std_input.get_mnemonic()
+        result = None
         for mnemonic in mnemonics:
             if mnemonic == "FIFO":
-                self.FIFO(ref_string, frames)
+                result = "FIFO:\t"
+                result += str(self.FIFO(ref_string, frames))
             elif mnemonic == "LRU":
-                self.LRU(ref_string, frames)
+                result = "LRU:\t"
+                result += str(self.LRU(ref_string, frames))
             elif mnemonic == "OPT":
-                self.OPT(ref_string, frames)
+                result = "OPT:\t"
+                result += str(self.OPT(ref_string, frames))
             elif mnemonic == "RAND":
-                self.RAND(ref_string, frames)
+                result = "RAND:\t"
+                result += str(self.RAND(ref_string, frames))
             else:
                 print(f"ERROR: {mnemonic} is not a valid mnemonic, check input file.")
                 return 1
+            print(result)
         return 0
-
-
-
-
-
-
-
 #end class
