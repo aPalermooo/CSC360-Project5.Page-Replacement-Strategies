@@ -8,10 +8,10 @@
 "   Date:       30 October 2024
 "
 """
+import sys
+
 import file_handler
 from replacement_algorithms import Algorithm
-
-import sys
 
 # Default file path is for the input file given in the assignment in the same directory as simpager.py
 DEFAULT_FILE_PATH = "p52.txt"

@@ -8,8 +8,9 @@
 "   Date:       30 October 2024
 "
 """
-from std_input import StdInput
 from random import randint
+
+from std_input import StdInput
 
 class Algorithm:
     def __init__(self, std_input: StdInput) -> None:
