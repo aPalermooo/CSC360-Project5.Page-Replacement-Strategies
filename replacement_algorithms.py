@@ -8,7 +8,6 @@
 "   Date:       30 October 2024
 "
 """
-
 from std_input import StdInput
 from random import randint
 
@@ -27,6 +26,13 @@ class Algorithm:
 
     @staticmethod
     def FIFO(ref_string : list[int], num_of_frames : int) -> int:
+        """
+        Applies a First in First out algorithm to place pages into frames
+            (Using a queue implementation)
+        :param ref_string:      order of pages called in memory
+        :param num_of_frames:   number of frames available in memory
+        :return:                number of page faults
+        """
         page_faults = 0
         frames_list = [-1] * num_of_frames
         for page in ref_string:
@@ -40,6 +46,13 @@ class Algorithm:
 
     @staticmethod
     def LRU(ref_string : list[int], num_of_frames : int) -> int:
+        """
+        Applies an algorithm to place pages into frames that places pages into frames
+        of pages that have been in memory the longest
+        :param ref_string:      order of pages called in memory
+        :param num_of_frames:   number of frames available in memory
+        :return:                number of page faults
+        """
         page_faults = 0
         frames_list = [-1] * num_of_frames
         index = 0
@@ -60,6 +73,12 @@ class Algorithm:
 
     @staticmethod
     def RAND(ref_string : list[int], num_of_frames : int) -> int:
+        """
+        Applies an algorithm to place pages into frames that places pages into random frames
+        :param ref_string:      order of pages called in memory
+        :param num_of_frames:   number of frames available in memory
+        :return:                number of page faults
+        """
         page_faults = 0
         frames_list = [-1] * num_of_frames
         for page in ref_string:
@@ -73,10 +92,14 @@ class Algorithm:
 
 
     def calculate(self) -> int:
+        """
+        Calls functions listed by input mnemonics to apply algorithms and prints their output
+        :return: 0 for success, 1 for formatting error
+        """
         ref_string =  self.__std_input.get_ref_string()
         frames =  self.__std_input.get_frames()
         mnemonics =  self.__std_input.get_mnemonic()
-        result = None
+
         for mnemonic in mnemonics:
             if mnemonic == "FIFO":
                 result = "FIFO:\t"

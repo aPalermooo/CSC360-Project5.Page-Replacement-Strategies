@@ -8,9 +8,7 @@
 "   Date:       30 October 2024
 "
 """
-
 from std_input import StdInput
-
 
 def read_input (filename: str) -> StdInput:
     """
