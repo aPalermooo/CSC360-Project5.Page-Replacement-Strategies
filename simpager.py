@@ -29,7 +29,11 @@ def main (file_path : str = DEFAULT_FILE_PATH) -> int:
     # open designated file and format contents
     print(f"simpager.py < {file_path}")                                 #echo file path
     program_input = file_handler.read_input(file_path)
-    print(f"Page Reference String: {program_input.get_ref_string()}")   #echo ref_string
+
+    output_ref_string = ""
+    for page in program_input.get_ref_string():
+        output_ref_string += str(page) + " "
+    print(f"Page Reference String:\n{output_ref_string}")               #echo ref_string
 
     # apply algorithms to ref string to calc page faults
     compute_page_faults = Algorithm(program_input)
@@ -39,5 +43,5 @@ def main (file_path : str = DEFAULT_FILE_PATH) -> int:
     return 0
 
 if __name__ == "__main__":
-    main("p52.txt")
+    main()
 
