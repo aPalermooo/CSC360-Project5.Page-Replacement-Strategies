@@ -13,9 +13,9 @@ class StdInput:
     """
     A class that acts as a container for input data
     Attributes:
-        __ref_string    the reference string (order that pages are called in)
-        __frames        number of frames available for pages to be stored in
-        __mnemonics     shorthand keywords that tell the program which algorithms to run
+        __ref_string:    the reference string (order that pages are called in)
+        __frames:        number of frames available for pages to be stored in
+        __mnemonics:    shorthand keywords that tell the program which algorithms to run
     """
 
     ''' Override methods '''

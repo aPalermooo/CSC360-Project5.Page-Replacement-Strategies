@@ -19,9 +19,12 @@ DEFAULT_FILE_PATH = "p52.txt"
 def main (file_path : str = DEFAULT_FILE_PATH) -> int:
     """
     Applies algorithms to calculate number of page faults a specific instance of memory would encounter
+
     Included algorithms: FIFO, LRU, OPT, and RAND
+
     :param file_path:       path of input file
-    :return:                0 for successful execution, 1 for input formatting error
+    :return:                0 for successful execution,
+                            1 for input formatting error
     """
     if len(sys.argv) > 1:
         file_path = sys.argv[1]
